@@ -147,7 +147,7 @@ def title_adder(new):
 class Data:
 
     def __init__(self):
-        self.engine = 'postgresql://dyfeozsmihybfu:4d701100fe07e67a2f71e3b3d6bbc3af5793e874cdda613f583c4736fdbb005e@ec2-54-163-158-194.compute-1.amazonaws.com:5432/d1gjlnpa8bvalr'
+        self.engine = os.environ.get('sql')
         self.df = pd.read_sql('select * from Members', con=self.engine)
         self.df['wedding_date'] = pd.to_datetime(self.df['wedding_date'], errors='coerce')
         # self.df = pd.read_csv('/Users/akinbodebams/PycharmProjects/arabs/new.csv')
