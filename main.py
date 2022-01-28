@@ -161,8 +161,8 @@ class Data:
     def today_birthday(self):
         lst = []
         celebrants_info = {}
-        # today = datetime.datetime.today().date()
-        today = datetime.datetime(2020, 2, 1)
+        today = datetime.datetime.today().date()
+#         today = datetime.datetime(2020, 2, 1)
         month = today.month
         day = today.day
         celebrant_number = self.df[self.df.month_and_day == (month, day)].phone_number
