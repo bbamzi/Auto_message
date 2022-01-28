@@ -66,14 +66,9 @@ def age(new):
     return age
 
 
+
+
 def month_day(new):
-    current_month = new.month
-    day = new.day
-    month_and_day = (current_month, day)
-    return month_and_day
-
-
-def wed_month_day(new):
     if new == pd.isnull(np.datetime64('NaT')):
         month_and_day = (0, 0)
     else:
@@ -152,7 +147,7 @@ class Data:
         self.df["marital_status"] = self.df["marital_status"].str.lower()
         self.df['title'] = self.df.apply(title_adder, axis=1)
         self.df['month_and_day'] = self.df['date_of_birth'].apply(month_day)
-        self.df['wed_month_day'] = self.df['wedding_date'].apply(wed_month_day)
+        self.df['wed_month_day'] = self.df['wedding_date'].apply(month_day)
         self.df['month'] = self.df['date_of_birth'].apply(month)
         self.df['wedding_date'] = pd.to_datetime(self.df['wedding_date'], errors='coerce')
 
