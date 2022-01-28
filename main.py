@@ -66,12 +66,6 @@ def age(new):
     return age
 
 
-def wedding_age(new):
-    this_year = datetime.datetime.today().year
-    age = this_year - new.year
-    return age
-
-
 def month_day(new):
     current_month = new.month
     day = new.day
